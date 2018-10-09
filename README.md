@@ -15,7 +15,7 @@ $beginDate = new \DateTime('2007-02-28');
 $endDate = new \DateTime('2007-03-31');
 
 print ISDA::dateDiff30360($beginDate, $endDate); // 33 days
-print ISDA::dateDiff30E360($beginDate, $endDate); // 30 days
+print ISDA::dateDiff30E360Isda($beginDate, $endDate); // 30 days
 print ISDA::dateDiff30E360Eurobond($beginDate, $endDate); // 32 days
 print ISDA::dateDiffActual360($beginDate, $endDate); // 31 days
 

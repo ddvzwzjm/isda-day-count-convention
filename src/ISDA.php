@@ -30,4 +30,23 @@ class ISDA
             + ((int)$endDate->format('m') - (int)$beginDate->format('m'))*30
             + ($d2 - $d1);
     }
+
+    public static function dateDiff30E360Isda(\DateTime $beginDate, \DateTime $endDate)
+    {
+        $dayBegin = (int)$beginDate->format('d');
+        $d1 = (int)$beginDate->format('t') === $dayBegin ? 30 : $dayBegin;
+
+        $dayEnd = (int)$endDate->format('d');
+        $d2 = (int)$endDate->format('t') === $dayEnd ? 30 : $dayEnd;
+
+        return
+            ((int)$endDate->format('Y') - (int)$beginDate->format('Y'))*360
+            + ((int)$endDate->format('m') - (int)$beginDate->format('m'))*30
+            + ($d2 - $d1);
+    }
+
+    public static function dateDiffActual360(\DateTime $beginDate, \DateTime $endDate)
+    {
+        return $endDate->diff($beginDate)->days;
+    }
 }
